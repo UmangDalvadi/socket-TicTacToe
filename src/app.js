@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import compression from "compression";
-import session from "express-session";
+// import session from "express-session";
 import rateLimit from "express-rate-limit";
 import expressLayouts from "express-ejs-layouts";
 import { io } from "./socket.js";
@@ -18,14 +18,14 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false, httpOnly: true, maxAge: 3600000 },
-  })
-);
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: { secure: false, httpOnly: true, maxAge: 3600000 },
+//   })
+// );
 
 app.use(cors());
 app.use(helmet());
