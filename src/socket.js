@@ -26,7 +26,7 @@ const checkWinner = (playedMoves, playerSymbol) => {
 const initializeSocket = (server) => {
   io = new Server(server, {
     cors: {
-      origin: ["http://localhost:3000", "https://admin.socket.io"],
+      origin: [process.env.FRONTEND_DOMAIN, "https://admin.socket.io"],
       methods: ["GET", "POST"],
       credentials: true,
     },
