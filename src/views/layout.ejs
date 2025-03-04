@@ -9,7 +9,11 @@
     />
     <title><%= title %></title>
   </head>
-  <body>
+  <body
+    class="h-screen flex justify-center items-center bg-gray-900 text-white"
+  >
     <%- body %>
   </body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/play.js"></script>
 </html>

@@ -1,1 +1,59 @@
 <% title= "Home" %>
+
+<!-- HOME -->
+<div class="w-96 bg-gray-800 p-6 rounded-lg shadow-lg text-center" id="home">
+  <h2 class="text-xl font-bold mb-4">Enter your name</h2>
+  <input
+    type="text"
+    id="playerName"
+    class="w-full p-2 rounded bg-gray-700 border border-gray-600 text-center text-white"
+    placeholder="Enter your name..."
+  />
+  <button
+    id="playButton"
+    class="w-full mt-4 bg-green-600 hover:bg-green-700 text-white py-2 rounded"
+  >
+    Play
+  </button>
+  <p id="status" class="mt-2 text-gray-400 hidden">Waiting for Opponent...</p>
+</div>
+
+<!-- PLAYGROUND -->
+<div
+  class="w-96 bg-gray-800 p-6 rounded-lg shadow-lg text-center hidden"
+  id="play-ground"
+>
+  <div class="flex justify-between items-center">
+    <span class="text-lg font-medium"
+      >You: <strong class="text-green-400" id="you"></strong
+    ></span>
+    <span class="text-lg font-medium"
+      >Opp: <strong class="text-red-400" id="opponent"></strong
+    ></span>
+  </div>
+
+  <div class="mt-2 mb-4">
+    <span class="font-bold text-3xl text-yellow-400" id="turn"></span>
+    <span>'s turn</span>
+  </div>
+
+  <div class="grid grid-cols-3 gap-3 bg-gray-700 rounded-lg p-3 w-fit mx-auto">
+    <% for(let i = 0; i < 9; i++) { %>
+    <button
+      class="w-20 h-20 flex justify-center items-center bg-gray-800 rounded cursor-pointer text-3xl font-bold hover:bg-gray-600 transition-all cell"
+      id="<%= i %>"
+    ></button>
+    <% } %>
+  </div>
+
+  <p class="mt-4 text-gray-400 text-lg">
+    You are playing as <strong class="text-green-400" id="playingAs"></strong>
+  </p>
+
+  <button
+    class="w-full mt-4 bg-red-600 hover:bg-red-700 text-white py-2 rounded"
+    id="leaveButton"
+  >
+    Leave Game
+  </button>
+</div>
