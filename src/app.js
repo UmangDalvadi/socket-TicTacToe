@@ -40,7 +40,7 @@ app.set("layout", "./layout.ejs");
 
 app.use(express.static("src/public"));
 
-app.get("/api/user/home", (req, res) => {
+app.get("/", (req, res) => {
   res.render("game/home");
 });
 
