@@ -1,6 +1,3 @@
 TIC TAC TOE
-Live :
 
-```
-https://socket-tictactoe-bnly.onrender.com/api/user/home
-```
+Try out the live version of the game here: [Tic-Tac-Toe Game](https://socket-tictactoe-bnly.onrender.com/)
