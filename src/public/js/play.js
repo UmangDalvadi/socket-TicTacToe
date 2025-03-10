@@ -26,12 +26,14 @@ socket.on("gameStarted", ({ p1, p2, turn }) => {
   document.getElementById("you").innerText =
     playerName === p1.name ? p1.name : p2.name;
   document.getElementById("playingAs").innerText =
-    playerName === p1.name ? p2.playingAs : p1.playingAs;
+    playerName === p1.name ? p1.playingAs : p2.playingAs;
+  document.getElementById("socketId").innerText =
+    playerName === p1.name ? p1.socketId : p2.socketId;
 
   document.getElementById("opponent").innerText =
     playerName === p1.name ? p2.name : p1.name;
-  document.getElementById("playingAs").innerText =
-    playerName === p1.name ? p1.playingAs : p2.playingAs;
+  // document.getElementById("playingAs").innerText =
+  //   playerName === p1.name ? p1.playingAs : p2.playingAs;
 
   document.getElementById("turn").innerText = turn;
 });
@@ -45,6 +47,7 @@ document.querySelectorAll(".cell").forEach((cell) => {
   cell.addEventListener("click", (e) => {
     const playerName = document.getElementById("playerName").value;
     const playingAs = document.getElementById("playingAs").innerText;
+    const socketId = document.getElementById("socketId").innerText;
     const turn = document.getElementById("turn").innerText;
 
     if (playerName === turn) {
@@ -53,6 +56,7 @@ document.querySelectorAll(".cell").forEach((cell) => {
         e.target.disabled = true;
         socket.emit("move", {
           playerName,
+          socketId,
           cell: e.target.id,
         });
       }

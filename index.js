@@ -1,10 +1,14 @@
 import { createServer } from "http";
 import app from "./src/app.js";
 import { initializeSocket } from "./src/socket.js";
+import connectToDb from "./src/config/db.js";
+import redisClient from "./src/config/redis.js";
 
 const startServer = async () => {
   try {
     const server = createServer(app);
+
+    await connectToDb();
 
     initializeSocket(server);
 
